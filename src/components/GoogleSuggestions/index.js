@@ -11,6 +11,11 @@ class GoogleSuggestions extends Component {
       searchInput: event.target.value,
     })
   }
+  
+  updateSearchInput = suggestion => {
+    this.setState({searchInput: suggestion})
+  }
+
 
   render() {
     const {suggestionsList} = this.props
@@ -56,6 +61,7 @@ class GoogleSuggestions extends Component {
                     alt="arrow"
                     className="arrow-icon"
                     value={eachItem.suggestion}
+                    onClick={() => this.updateSearchInput(eachItem.suggestion)}
                   />
                 </li>
               ))}
